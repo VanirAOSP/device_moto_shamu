@@ -1,2 +1,2 @@
-android_device_moto_shamu
+android_device_motorola_shamu
 =========================
