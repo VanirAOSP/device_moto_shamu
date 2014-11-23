@@ -27,7 +27,7 @@ LOCAL_KERNEL := $(TARGET_PREBUILT_KERNEL)
 endif
 
 PRODUCT_PROPERTY_OVERRIDES += \
-    net.hostname=hammerhead
+    net.hostname=shamu
 
 PRODUCT_COPY_FILES := \
     $(LOCAL_KERNEL):kernel
