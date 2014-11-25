@@ -19,18 +19,8 @@
 #
 # Everything in this directory will become public
 
-
-ifeq ($(TARGET_PREBUILT_KERNEL),)
-LOCAL_KERNEL := device/moto/shamu-kernel/zImage-dtb
-else
-LOCAL_KERNEL := $(TARGET_PREBUILT_KERNEL)
-endif
-
 PRODUCT_PROPERTY_OVERRIDES += \
     net.hostname=hammerhead
-
-PRODUCT_COPY_FILES := \
-    $(LOCAL_KERNEL):kernel
 
 PRODUCT_COPY_FILES += \
     device/moto/shamu/init.shamu.rc:root/init.shamu.rc \
