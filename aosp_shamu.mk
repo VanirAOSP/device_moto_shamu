@@ -14,16 +14,10 @@
 # limitations under the License.
 #
 
-# Inherit from the common Open Source product configuration
-$(call inherit-product, $(SRC_TARGET_DIR)/product/aosp_base_telephony.mk)
+$(call inherit-product, device/moto/shamu/full_shamu.mk)
 
-PRODUCT_NAME := full_shamu
-PRODUCT_DEVICE := shamu
-PRODUCT_BRAND := Android
-PRODUCT_MODEL := AOSP on Shamu
-PRODUCT_MANUFACTURER := motorola
-PRODUCT_RESTRICT_VENDOR_FILES := false
+PRODUCT_NAME := aosp_shamu
 
-$(call inherit-product, device/moto/shamu/device.mk)
-$(call inherit-product-if-exists, vendor/moto/shamu/shamu-vendor.mk)
+PRODUCT_PACKAGES += \
+    Launcher3
 
