@@ -5,7 +5,7 @@ $(call inherit-product, vendor/liquid/config/common_phone.mk)
 $(call inherit-product, vendor/liquid/config/nfc_enhanced.mk)
 
 # Inherit device configuration
-$(call inherit-product, device/moto/shamu/aosp_shamu.mk)
+$(call inherit-product, device/moto/shamu/full_shamu.mk)
 
 ## Device identifier. This must come after all inclusions
 PRODUCT_DEVICE := shamu
