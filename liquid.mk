@@ -16,3 +16,5 @@ PRODUCT_MANUFACTURER := motorola
 
 # Enable Torch
 PRODUCT_PACKAGES += Torch
+
+PRODUCT_BUILD_PROP_OVERRIDES += PRODUCT_NAME=shamu BUILD_FINGERPRINT=google/shamu/shamu:5.0/LRX21O/1570415:user/release-keys PRIVATE_BUILD_DESC="shamu-user 5.0 LXR21O 1570415 release-keys"
