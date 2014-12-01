@@ -25,7 +25,7 @@ TARGET_USE_QCOM_BIONIC_OPTIMIZATION := true
 TARGET_NO_BOOTLOADER := true
 
 # Define kernel config for inline building
-TARGET_KERNEL_CONFIG := shamu_defconfig
+TARGET_KERNEL_CONFIG := liquid_shamu_defconfig
 TARGET_KERNEL_SOURCE := kernel/moto/shamu
 
 BOARD_KERNEL_BASE := 0x00000000
