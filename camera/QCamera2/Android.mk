@@ -56,16 +56,16 @@ LOCAL_C_INCLUDES += $(TARGET_OUT_INTERMEDIATES)/KERNEL_OBJ/usr/include
 
 #LOCAL_STATIC_LIBRARIES := libqcamera2_util
 LOCAL_C_INCLUDES += \
-        hardware/qcom/display/$(TARGET_BOARD_PLATFORM)/libgralloc
+        hardware/qcom/display/libgralloc
 LOCAL_C_INCLUDES += \
-        hardware/qcom/display/$(TARGET_BOARD_PLATFORM)/libqdutils
+        hardware/qcom/display/libqdutils
 
 LOCAL_SHARED_LIBRARIES := libcamera_client liblog libhardware libutils libcutils libdl
 LOCAL_SHARED_LIBRARIES += libmmcamera_interface libmmjpeg_interface libui libcamera_metadata
 LOCAL_SHARED_LIBRARIES += libqdMetaData
 
 LOCAL_MODULE_RELATIVE_PATH := hw
-LOCAL_MODULE := camera.$(TARGET_BOARD_PLATFORM)
+LOCAL_MODULE := camera.$(msm8084)
 LOCAL_MODULE_TAGS := optional
 
 LOCAL_32_BIT_ONLY := true
