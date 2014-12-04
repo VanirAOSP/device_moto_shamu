@@ -85,6 +85,7 @@
 /system/lib/libloc_core.so
 /system/lib/libloc_eng.so
 /system/lib/libmdmdetect.so
+/system/lib/libmemalloc.so
 /system/lib/libmm-qcamera.so
 /system/lib/librecoglib.so
 /system/lib/librmnetctl.so
@@ -335,7 +336,14 @@
 /system/vendor/lib/libthermalioctl.so
 /system/vendor/lib/libtime_genoff.so
 /system/vendor/lib/libTimeService.so
+/system/vendor/lib/libwvdrm_L1.so
+/system/vendor/lib/libWVphoneAPI.so
+/system/vendor/lib/libWVStreamControlAPI_L1.so
+/system/vendor/lib/libwvm.so
 /system/vendor/lib/libxml.so
+/system/vendor/lib/drm/libdrmwvmplugin.so 
+/system/vendor/lib/mediadrm/libdrmclearkeyplugin.so
+/system/vendor/lib/mediadrm/libwvdrmengine.so
 /system/vendor/media/LMspeed_508.emd
 /system/vendor/media/PFFprec_600.emd
 /system/vendor/pittpatt/models/recognition/face.face.y0-y0-71-N-tree_7-wmd.bin
