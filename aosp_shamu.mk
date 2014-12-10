@@ -17,15 +17,15 @@
 # Sample: This is where we'd set a backup provider if we had one
 # $(call inherit-product, device/sample/products/backup_overlay.mk)
 
-$(call inherit-product, device/moto/shamu/full_shamu.mk)
+$(call inherit-product, device/motorola/shamu/full_shamu.mk)
 
 PRODUCT_DEVICE := shamu
 PRODUCT_BRAND := Android
 PRODUCT_MODEL := AOSP on Shamu
 PRODUCT_MANUFACTURER := motorola
 
-$(call inherit-product, device/moto/shamu/device.mk)
-$(call inherit-product-if-exists, vendor/moto/shamu/device-vendor.mk)
+$(call inherit-product, device/motorola/shamu/device.mk)
+$(call inherit-product-if-exists, vendor/motorola/shamu/device-vendor.mk)
 
 PRODUCT_NAME := aosp_shamu
 
