@@ -20,4 +20,4 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/aosp_base_telephony.mk)
 PRODUCT_RESTRICT_VENDOR_FILES := false
 
 $(call inherit-product, device/motorola/shamu/device.mk)
-$(call inherit-product-if-exists, vendor/moto/shamu/shamu-vendor.mk)
+$(call inherit-product-if-exists, vendor/motorola/shamu/shamu-vendor.mk)
