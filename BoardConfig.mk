@@ -47,7 +47,7 @@ MAX_EGL_CACHE_KEY_SIZE := 12*1024
 # of the device.
 MAX_EGL_CACHE_SIZE := 2048*1024
 
-BOARD_EGL_CFG := device/moto/shamu/egl.cfg
+BOARD_EGL_CFG := device/motorola/shamu/egl.cfg
 
 BOARD_USES_ALSA_AUDIO := true
 
@@ -73,7 +73,7 @@ TARGET_BOARD_PLATFORM := msm8084
 TARGET_BOOTLOADER_BOARD_NAME := shamu
 TARGET_NO_RPC := true
 
-TARGET_BOARD_INFO_FILE := device/moto/shamu/board-info.txt
+TARGET_BOARD_INFO_FILE := device/motorola/shamu/board-info.txt
 
 USE_OPENGL_RENDERER := true
 VSYNC_EVENT_PHASE_OFFSET_NS := 7500000
@@ -81,13 +81,13 @@ SF_VSYNC_EVENT_PHASE_OFFSET_NS := 5000000
 TARGET_USES_ION := true
 
 # Define kernel config for inline building
-TARGET_KERNEL_SOURCE := kernel/moto/shamu
+TARGET_KERNEL_SOURCE := kernel/motorola/shamu
 TARGET_KERNEL_CONFIG := shamu_defconfig
 BOARD_KERNEL_IMAGE_NAME := zImage-dtb
 
 # Recovery
 BOARD_HAS_NO_SELECT_BUTTON := true
-TARGET_RECOVERY_FSTAB = device/moto/shamu/fstab.shamu
+TARGET_RECOVERY_FSTAB = device/motorola/shamu/fstab.shamu
 
 BOARD_EGL_CFG := device/moto/shamu/egl.cfg
 
@@ -113,13 +113,13 @@ BOARD_FLASH_BLOCK_SIZE := 131072
 
 BOARD_CHARGER_ENABLE_SUSPEND := true
 
-TARGET_RELEASETOOLS_EXTENSIONS := device/moto/shamu
+TARGET_RELEASETOOLS_EXTENSIONS := device/motorola/shamu
 
 # Support Native Layer RF cutback
 BOARD_USES_CUTBACK_IN_RILD := true
 
 BOARD_SEPOLICY_DIRS += \
-       device/moto/shamu/sepolicy
+       device/motorola/shamu/sepolicy
 
 BOARD_SEPOLICY_UNION += \
         adspd.te \
@@ -179,4 +179,4 @@ BOARD_HAL_STATIC_LIBRARIES := libdumpstate.shamu
 # Include an expanded selection of fonts
 EXTENDED_FONT_FOOTPRINT := true
 
--include vendor/moto/shamu/BoardConfigVendor.mk
+-include vendor/motorola/shamu/BoardConfigVendor.mk
