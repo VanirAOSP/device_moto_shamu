@@ -1,5 +1,6 @@
 /*
- * Copyright 2014 The Android Open Source Project
+ * Copyright (C) 2011 The Code Aurora Forum. All rights reserved.
+ * Copyright (c) 2011 The Android Open Source Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -13,12 +14,17 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+#include <system/window.h>
 
-#ifndef _BDROID_BUILDCFG_H
-#define _BDROID_BUILDCFG_H
+namespace android {
 
-/*#define BTM_WBS_INCLUDED TRUE
-#define BTIF_HF_WBS_PREFERRED TRUE*/
-#define BLE_VND_INCLUDED TRUE
+    typedef enum {
+        kMetadataBufferTypeCameraSource  = 0,
+        kMetadataBufferTypeGrallocSource = 1,
+    } MetadataBufferType;
 
-#endif
+    typedef struct encoder_media_buffer_type {
+        MetadataBufferType buffer_type;
+        buffer_handle_t meta_handle;
+    } encoder_media_buffer_type;
+}
