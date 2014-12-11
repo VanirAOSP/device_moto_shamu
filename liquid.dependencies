@@ -1,8 +1,8 @@
 [
   {
-    "remote": "gh",
-    "repository": "ThankYouMario/proprietary_vendor_motorola_shamu",
-    "target_path": "vendor/moto/shamu",
+    "remote": "ls",
+    "repository": "proprietary_vendor_motorola",
+    "target_path": "vendor/moto",
     "revision": "lollipop"
   },
   {

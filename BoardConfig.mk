@@ -16,6 +16,7 @@
 
 TARGET_CPU_ABI := armeabi-v7a
 TARGET_CPU_ABI2 := armeabi
+TARGET_CPU_SMP := true
 TARGET_ARCH := arm
 TARGET_ARCH_VARIANT := armv7-a-neon
 TARGET_CPU_VARIANT := krait
@@ -23,22 +24,20 @@ TARGET_USE_QCOM_BIONIC_OPTIMIZATION := true
 
 TARGET_NO_BOOTLOADER := true
 
-# Define kernel config for inline building
-TARGET_KERNEL_CONFIG := liquid_shamu_defconfig
-TARGET_KERNEL_SOURCE := kernel/moto/shamu
+# Custom Toolchain Flags
+TARGET_GCC_VERSION_ARM := 4.9-sm
+
+# Liquid Optimizations
+LIQUIFY := true
 
 BOARD_KERNEL_BASE := 0x00000000
-BOARD_KERNEL_IMAGE_NAME := zImage-dtb
 BOARD_KERNEL_PAGESIZE :=  2048
 BOARD_KERNEL_TAGS_OFFSET := 0x01E00000
 BOARD_RAMDISK_OFFSET     := 0x02000000
 
-BOARD_KERNEL_CMDLINE := console=ttyHSL0,115200,n8 androidboot.selinux=permissive androidboot.console=ttyHSL0 androidboot.hardware=shamu msm_rtb.filter=0x37 ehci-hcd.park=3 utags.blkdev=/dev/block/platform/msm_sdcc.1/by-name/utags utags.backup=/dev/block/platform/msm_sdcc.1/by-name/utagsBackup coherent_pool=8M
-BOARD_KERNEL_CMDLINE += vmalloc=340M
-BOARD_MKBOOTIMG_ARGS := --ramdisk_offset BOARD_RAMDISK_OFFSET --tags_offset BOARD_KERNEL_TAGS_OFFSET
+BOARD_KERNEL_CMDLINE := console=ttyHSL0,115200,n8 androidboot.console=ttyHSL0 androidboot.selinux=permissive androidboot.hardware=shamu msm_rtb.filter=0x37 ehci-hcd.park=3 utags.blkdev=/dev/block/platform/msm_sdcc.1/by-name/utags utags.backup=/dev/block/platform/msm_sdcc.1/by-name/utagsBackup coherent_pool=8M
 
-# Custom Toolchain Flags
-TARGET_GCC_VERSION_ARM := 4.8-sm
+BOARD_MKBOOTIMG_ARGS := --ramdisk_offset BOARD_RAMDISK_OFFSET --tags_offset BOARD_KERNEL_TAGS_OFFSET
 
 # Shader cache config options
 # Maximum size of the  GLES Shaders that can be cached for reuse.
@@ -83,11 +82,22 @@ VSYNC_EVENT_PHASE_OFFSET_NS := 7500000
 SF_VSYNC_EVENT_PHASE_OFFSET_NS := 5000000
 TARGET_USES_ION := true
 
+# Define kernel config for inline building
+TARGET_KERNEL_SOURCE := kernel/moto/shamu
+TARGET_KERNEL_CONFIG := liquid_shamu_defconfig
+BOARD_KERNEL_IMAGE_NAME := zImage-dtb
+
+# Recovery
+BOARD_HAS_NO_SELECT_BUTTON := true
+TARGET_RECOVERY_FSTAB = device/moto/shamu/fstab.shamu
+
+BOARD_EGL_CFG := device/moto/shamu/egl.cfg
+
 # Enable dex-preoptimization to speed up first boot sequence
 ifeq ($(HOST_OS),linux)
   ifeq ($(TARGET_BUILD_VARIANT),user)
     ifeq ($(WITH_DEXPREOPT),)
-      WITH_DEXPREOPT := true
+      WITH_DEXPREOPT := false
     endif
   endif
 endif
@@ -104,10 +114,6 @@ BOARD_CACHEIMAGE_FILE_SYSTEM_TYPE := ext4
 BOARD_FLASH_BLOCK_SIZE := 131072
 
 BOARD_CHARGER_ENABLE_SUSPEND := true
-
-# Recovery
-TARGET_RECOVERY_FSTAB = device/moto/shamu/fstab.shamu
-BOARD_HAS_NO_SELECT_BUTTON := true
 
 TARGET_RELEASETOOLS_EXTENSIONS := device/moto/shamu
 
@@ -128,6 +134,7 @@ BOARD_SEPOLICY_UNION += \
         domain.te \
         file.te \
         gsiffd.te \
+        healthd.te \
         irsc_util.te \
         mdm_helper.te \
         mediaserver.te \
@@ -161,6 +168,9 @@ OVERRIDE_RS_DRIVER:= libRSDriver_adreno.so
 TARGET_FORCE_HWC_FOR_VIRTUAL_DISPLAYS := true
 
 BOARD_VENDOR_QCOM_GPS_LOC_API_HARDWARE := $(TARGET_BOARD_PLATFORM)
+
+# QCOM PowerHAL
+TARGET_POWERHAL_VARIANT := qcom
 
 BOARD_HAS_AUDIO_DSP := true
 
