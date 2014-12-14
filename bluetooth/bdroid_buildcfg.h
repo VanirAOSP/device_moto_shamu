@@ -17,8 +17,10 @@
 #ifndef _BDROID_BUILDCFG_H
 #define _BDROID_BUILDCFG_H
 
-/*#define BTM_WBS_INCLUDED TRUE
-#define BTIF_HF_WBS_PREFERRED TRUE*/
+#define BTM_DEF_LOCAL_NAME   "Nexus 6"
+#define BTA_DISABLE_DELAY 1000 /* in milliseconds */
+
+#define BTIF_HF_WBS_PREFERRED TRUE
 #define BLE_VND_INCLUDED TRUE
 
 #endif
