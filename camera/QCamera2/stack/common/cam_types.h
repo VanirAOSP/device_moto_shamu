@@ -56,6 +56,7 @@
  *  dump the image to the file
  **/
 #define CAM_DUMP_TO_FILE(path, name, index, extn, p_addr, len) ({ \
+  int rc = 0; \
   char filename[CAM_FN_CNT]; \
   if (index >= 0) \
     snprintf(filename, CAM_FN_CNT-1, "%s/%s%d.%s", path, name, index, extn); \
@@ -63,7 +64,7 @@
     snprintf(filename, CAM_FN_CNT-1, "%s/%s.%s", path, name, extn); \
   FILE *fp = fopen(filename, "w+"); \
   if (fp) { \
-    fwrite(p_addr, 1, len, fp); \
+    rc = fwrite(p_addr, 1, len, fp); \
     ALOGE("%s:%d] written size %d", __func__, __LINE__, len); \
     fclose(fp); \
   } else { \
