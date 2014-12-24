@@ -33,6 +33,8 @@ PRODUCT_MANUFACTURER := motorola
 $(call inherit-product, device/moto/shamu/device.mk)
 $(call inherit-product-if-exists, vendor/motorola/shamu/device-vendor.mk)
 
+DEVICE_PACKAGE_OVERLAYS += device/moto/shamu/overlay-cm
+
 PRODUCT_NAME := aosp_shamu
 
 PRODUCT_PACKAGES += \

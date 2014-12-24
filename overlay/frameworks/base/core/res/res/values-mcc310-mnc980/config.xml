@@ -17,13 +17,7 @@
 */
 -->
 
-<!-- These resources are around just to allow their values to be customized
-     for different hardware and product builds. -->
-<resources>
-    <string-array translatable="false" name="config_default_vm_number">
-        <!-- VZW -->
-        <item>*86;BAE0000000000000</item>
-    </string-array>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
 
     <string-array translatable="false" name="config_mobile_hotspot_provision_app">
         <item>com.motorola.entitlement</item>
