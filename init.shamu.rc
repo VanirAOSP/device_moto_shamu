@@ -553,9 +553,10 @@ service time_daemon /system/bin/time_daemon
 
 on property:init.svc.bootanim=stopped
     start usf-post-boot
+    start qcamserver
 
 service qcamerasvr /system/bin/mm-qcamera-daemon
-    class late_start
+    # class late_start
     user camera
     group camera system inet input graphics
 
