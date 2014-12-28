@@ -107,7 +107,7 @@ PRODUCT_CHARACTERISTICS := nosdcard
 DEVICE_PACKAGE_OVERLAYS := \
     device/moto/shamu/overlay
 
-PRODUCT_PACKAGES := \
+PRODUCT_PACKAGES += \
     libwpa_client \
     hostapd \
     dhcpcd.conf \
@@ -115,6 +115,8 @@ PRODUCT_PACKAGES := \
     wpa_supplicant.conf
 
 PRODUCT_PACKAGES += atmel.fw.apq8084
+
+PRODUCT_PACKAGES += libtinycompress
 
 # OEM Package for RIL
 PRODUCT_PACKAGES += \
@@ -146,6 +148,7 @@ PRODUCT_PACKAGES += \
     audio.a2dp.default \
     audio.usb.default \
     audio.r_submix.default \
+    libaudioroute \
     libaudio-resampler
 
 PRODUCT_PROPERTY_OVERRIDES += \
@@ -174,7 +177,8 @@ PRODUCT_PACKAGES += \
     libmmjpeg_interface \
     camera.msm8084 \
     mm-jpeg-interface-test \
-    mm-qcamera-app
+    mm-qcamera-app \
+    libmm-qcamera
 
 PRODUCT_PACKAGES += \
     libion
