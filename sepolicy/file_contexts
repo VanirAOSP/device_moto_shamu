@@ -131,6 +131,8 @@
 /sys/class/rfkill/rfkill0/state u:object_r:sysfs_bluetooth_writable:s0
 
 # Sysfs entry for the RmNet function driver
+/sys/module/f_rmnet/parameters/rmnet_ctl_ch  --  u:object_r:sysfs_rmnet:s0
+/sys/module/rmnet/parameters/rmnet_ctl_ch  --  u:object_r:sysfs_rmnet:s0
 /sys/class/android_usb/f_rmnet_smd_sdio/transport  --  u:object_r:sysfs_rmnet:s0
 /sys/devices/virtual/android_usb/android0/f_rmnet_smd_sdio/transport  --  u:object_r:sysfs_rmnet:s0
 
