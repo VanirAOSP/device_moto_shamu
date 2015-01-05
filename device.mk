@@ -133,6 +133,10 @@ PRODUCT_PACKAGES += \
     libqdMetaData
 
 PRODUCT_PACKAGES += \
+    librmnetctl \
+    rmnetcl
+
+PRODUCT_PACKAGES += \
     libc2dcolorconvert \
     libstagefrighthw \
     libOmxCore \
