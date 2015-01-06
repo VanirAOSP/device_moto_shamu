@@ -110,8 +110,7 @@ TARGET_RELEASETOOLS_EXTENSIONS := device/moto/shamu
 # Support Native Layer RF cutback
 BOARD_USES_CUTBACK_IN_RILD := true
 
-# Un-derp some ril crap because shamu is sorta QCOM, but not really
-RIL_EXTRA_CFLAGS := -DQCOM_HARDWARE
+$(call ril-set-path-variant,ril-aosp)
 
 BOARD_SEPOLICY_DIRS += \
        device/moto/shamu/sepolicy
