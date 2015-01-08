@@ -18,13 +18,16 @@
 # are also specific to shamu devices
 #
 # Everything in this directory will become public
-
+THE_FSTAB := fstab_nocrypt.shanu
+ifeq ($(ENABLE_FORCED_ENCRYPTION),true)
+THE_FSTAB := fstab.shamu
+endif
 
 PRODUCT_COPY_FILES += \
     device/moto/shamu/init.shamu.rc:root/init.shamu.rc \
     device/moto/shamu/init.shamu.power.rc:root/init.shamu.power.rc \
     device/moto/shamu/init.shamu.usb.rc:root/init.shamu.usb.rc \
-    device/moto/shamu/fstab.shamu:root/fstab.shamu \
+    device/moto/shamu/$(THE_FSTAB):root/fstab.shamu \
     device/moto/shamu/ueventd.shamu.rc:root/ueventd.shamu.rc
 
 # Input device files for shamu
