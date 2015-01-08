@@ -17,6 +17,7 @@
 import init.shamu.usb.rc
 import init.shamu.power.rc
 import init.shamu.diag.rc
+import init.performance_profiles.rc
 
 on early-init
     mkdir /firmware 0771 system system
@@ -244,6 +245,11 @@ on boot
     chown media media /sys/devices/c55_ctrl/gpio_c55_int/value
     chown media media /sys/devices/c55_ctrl/gpio_core/value
     chown media media /sys/devices/c55_ctrl/gpio_reset/value
+
+    chown system system /sys/class/leds/charging/brightness
+    chown system system /sys/class/leds/charging/max_brightness
+    echo battery-charging > /sys/class/leds/charging/trigger
+    echo 1 > /sys/class/leds/charging/max_brightness
 
 # subsystem ramdump collection
 on property:persist.sys.qc.sub.rdump.on=*
@@ -524,13 +530,14 @@ on property:persist.usb.chgdisabled=0
     write /sys/class/power_supply/battery/charging_enabled 1
 
 service qseecomd /system/bin/qseecomd
-   class core
-   user root
-   group root
+    class core
+    user root
+    group root
 
 service mpdecision /system/bin/mpdecision --avg_comp
-   class main
-   user root
+    class main
+    user root
+    disabled
 
 service ss_ramdump /system/bin/subsystem_ramdump
     class main
@@ -539,14 +546,14 @@ service ss_ramdump /system/bin/subsystem_ramdump
     disabled
 
 service thermal-engine /system/bin/thermal-engine
-   class main
-   user root
-   group root
+    class main
+    user root
+    group root
 
 service time_daemon /system/bin/time_daemon
-   class late_start
-   user root
-   group root
+    class late_start
+    user root
+    group root
 
 on property:init.svc.bootanim=stopped
     start usf-post-boot
