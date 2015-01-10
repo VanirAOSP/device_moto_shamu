@@ -34,7 +34,14 @@ PRODUCT_COPY_FILES += \
 PRODUCT_COPY_FILES += \
     device/moto/shamu/gpio-keys.kl:system/usr/keylayout/gpio-keys.kl \
     device/moto/shamu/apq8084-taiko-tfa9890_stereo_co_Button_Jack.kl:system/usr/keylayout/apq8084-taiko-tfa9890_stereo_co_Button_Jack.kl \
-	device/moto/shamu/atmel_mxt_ts.idc:system/usr/idc/atmel_mxt_ts.idc
+    device/moto/shamu/atmel_mxt_ts.idc:system/usr/idc/atmel_mxt_ts.idc
+
+# OK Google everywhere
+PRODUCT_COPY_FILES += \
+    device/moto/shamu/okgoogle/com.motorola.triggerenroll.xml:system/etc/permissions/com.motorola.triggerenroll.xml \
+    device/moto/shamu/okgoogle/libtrainingcheck.so:system/lib/libtrainingcheck.so \
+    device/moto/shamu/okgoogle/TriggerEnroll.apk:system/priv-app/TriggerEnroll/TriggerEnroll.apk \
+    device/moto/shamu/okgoogle/TriggerTrainingService.apk:system/priv-app/TriggerTrainingService/TriggerTrainingService.apk
 
 PRODUCT_COPY_FILES += \
     device/moto/shamu/audio_policy.conf:system/etc/audio_policy.conf \
