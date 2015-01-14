@@ -300,6 +300,11 @@ PRODUCT_PACKAGES += \
     NfcNci \
     Tag
 
+# OK GOOGLE STUFFS
+PRODUCT_PACKAGES += \
+    libsoundtrigger \
+    libsroundtriggerservice
+
 PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.hardware.nfc.xml:system/etc/permissions/android.hardware.nfc.xml \
     frameworks/native/data/etc/android.hardware.nfc.hce.xml:system/etc/permissions/android.hardware.nfc.hce.xml \
