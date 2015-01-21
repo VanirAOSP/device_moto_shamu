@@ -27,13 +27,17 @@ on early-init
 
 on init
     # See storage config details at http://source.android.com/tech/storage/
-    mkdir /mnt/shell/emulated 0700 shell shell
+    chmod 0701 /mnt/media_rw
+    mkdir /mnt/media_rw/usbdisk 0775 system system
+	mkdir /mnt/shell/emulated 0700 shell shell
     mkdir /storage/emulated 0555 root root
 
     mkdir /oem 0550 root root
 
     # Set permissions for persist partition
     mkdir /persist 0771 system system
+
+    mkdir /storage/usbdisk 0000 system system
 
     export EXTERNAL_STORAGE /storage/emulated/legacy
     export EMULATED_STORAGE_SOURCE /mnt/shell/emulated
@@ -536,6 +540,10 @@ on property:persist.usb.chgdisabled=1
 
 on property:persist.usb.chgdisabled=0
     write /sys/class/power_supply/battery/charging_enabled 1
+
+service fuse_usbdisk /system/bin/sdcard -u 1023 -g 1023 /mnt/media_rw/usbdisk /storage/usbdisk
+    class late_start
+    disabled
 
 service qseecomd /system/bin/qseecomd
     class core
