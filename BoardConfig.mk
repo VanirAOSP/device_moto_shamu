@@ -109,8 +109,11 @@ TARGET_RECOVERY_FSTAB = device/moto/shamu/fstab_nocrypt.shamu
 else
 TARGET_RECOVERY_FSTAB = device/moto/shamu/fstab.shamu
 endif
+
 # Ensure f2fstools are built
+ifeq ($(HOST_OS),linux)
 TARGET_USERIMAGES_USE_F2FS := true
+endif
 
 TARGET_RELEASETOOLS_EXTENSIONS := device/moto/shamu
 
