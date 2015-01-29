@@ -250,10 +250,10 @@ on boot
     chown media media /sys/devices/c55_ctrl/gpio_core/value
     chown media media /sys/devices/c55_ctrl/gpio_reset/value
 
-    # LED permissions
-    chmod 664 /sys/class/leds/red/brightness
-    chmod 664 /sys/class/leds/green/brightness
-    chmod 664 /sys/class/leds/blue/brightness
+    chown system system /sys/class/leds/charging/brightness
+    chown system system /sys/class/leds/charging/max_brightness
+    echo battery-charging > /sys/class/leds/charging/trigger
+    echo 1 > /sys/class/leds/charging/max_brightness
 
 # subsystem ramdump collection
 on property:persist.sys.qc.sub.rdump.on=*
