@@ -275,6 +275,13 @@ int32_t QCameraStateMachine::stateMachine(qcamera_sm_evt_enum_t evt, void *paylo
     return rc;
 }
 
+#define THERMAL_PAYLOAD_FIX \
+    union { \
+        void **payload; \
+        qcamera_thermal_level_enum_t *thermal_enum; \
+    } upayload; \
+    upayload.payload = &payload
+
 /*===========================================================================
  * FUNCTION   : procEvtPreviewStoppedState
  *
@@ -295,7 +302,6 @@ int32_t QCameraStateMachine::procEvtPreviewStoppedState(qcamera_sm_evt_enum_t ev
     int32_t rc = NO_ERROR;
     qcamera_api_result_t result;
     memset(&result, 0, sizeof(qcamera_api_result_t));
-
     ALOGV("%s: event (%d)", __func__, evt);
     switch (evt) {
     case QCAMERA_SM_EVT_SET_PREVIEW_WINDOW:
@@ -545,8 +551,8 @@ int32_t QCameraStateMachine::procEvtPreviewStoppedState(qcamera_sm_evt_enum_t ev
         break;
     case QCAMERA_SM_EVT_THERMAL_NOTIFY:
         {
-            rc = m_parent->updateThermalLevel(
-                    *(qcamera_thermal_level_enum_t *)&payload);
+            THERMAL_PAYLOAD_FIX;
+            rc = m_parent->updateThermalLevel(*upayload.thermal_enum);
         }
         break;
     case QCAMERA_SM_EVT_EVT_NOTIFY:
@@ -1262,8 +1268,8 @@ int32_t QCameraStateMachine::procEvtPreviewingState(qcamera_sm_evt_enum_t evt,
         break;
     case QCAMERA_SM_EVT_THERMAL_NOTIFY:
         {
-            rc = m_parent->updateThermalLevel(
-                    *(qcamera_thermal_level_enum_t *)&payload);
+            THERMAL_PAYLOAD_FIX;
+            rc = m_parent->updateThermalLevel(*upayload.thermal_enum);
         }
         break;
     case QCAMERA_SM_EVT_SNAPSHOT_DONE:
@@ -1761,8 +1767,8 @@ int32_t QCameraStateMachine::procEvtPicTakingState(qcamera_sm_evt_enum_t evt,
         break;
     case QCAMERA_SM_EVT_THERMAL_NOTIFY:
         {
-            rc = m_parent->updateThermalLevel(
-                    *(qcamera_thermal_level_enum_t *)&payload);
+            THERMAL_PAYLOAD_FIX;
+            rc = m_parent->updateThermalLevel(*upayload.thermal_enum);
         }
         break;
     default:
@@ -2103,8 +2109,8 @@ int32_t QCameraStateMachine::procEvtRecordingState(qcamera_sm_evt_enum_t evt,
         break;
     case QCAMERA_SM_EVT_THERMAL_NOTIFY:
         {
-            rc = m_parent->updateThermalLevel(
-                    *(qcamera_thermal_level_enum_t *)&payload);
+            THERMAL_PAYLOAD_FIX;
+            rc = m_parent->updateThermalLevel(*upayload.thermal_enum);
         }
         break;
     case QCAMERA_SM_EVT_SNAPSHOT_DONE:
@@ -2458,8 +2464,8 @@ int32_t QCameraStateMachine::procEvtVideoPicTakingState(qcamera_sm_evt_enum_t ev
         break;
     case QCAMERA_SM_EVT_THERMAL_NOTIFY:
         {
-            rc = m_parent->updateThermalLevel(
-                    *(qcamera_thermal_level_enum_t *)&payload);
+            THERMAL_PAYLOAD_FIX;
+            rc = m_parent->updateThermalLevel(*upayload.thermal_enum);
         }
         break;
     default:
@@ -2913,8 +2919,8 @@ int32_t QCameraStateMachine::procEvtPreviewPicTakingState(qcamera_sm_evt_enum_t 
         break;
     case QCAMERA_SM_EVT_THERMAL_NOTIFY:
         {
-            rc = m_parent->updateThermalLevel(
-                    *(qcamera_thermal_level_enum_t *)&payload);
+            THERMAL_PAYLOAD_FIX;
+            rc = m_parent->updateThermalLevel(*upayload.thermal_enum);
         }
         break;
     default:
