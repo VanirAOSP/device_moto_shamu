@@ -11,7 +11,7 @@ allow radio persist_file:dir search;
 allow radio persist_hiddenmenu_file:dir rw_dir_perms;
 allow radio persist_hiddenmenu_file:file create_file_perms;
 
-allow radio tap2wake_dev:file r_file_perms;
-
 # Connect to ims service.
 allow radio ims:unix_stream_socket connectto;
+
+allow radio tap2wake_dev:file r_file_perms;
