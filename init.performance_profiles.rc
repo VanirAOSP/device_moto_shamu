@@ -11,7 +11,7 @@ on property:fku.perf.profile=0
     write /sys/devices/system/cpu/cpu1/cpufreq/scaling_max_freq 1036800
     write /sys/devices/system/cpu/cpu2/cpufreq/scaling_max_freq 1036800
     write /sys/devices/system/cpu/cpu3/cpufreq/scaling_max_freq 1036800
-    write /sys/class/misc/mako_hotplug_control/load_threshold 100
+    #write /sys/class/misc/mako_hotplug_control/load_threshold 100
     write /sys/class/devfreq/fdb00000.qcom,kgsl-3d0/max_freq 300000000
 
 # Balance (FK defaults)
@@ -23,7 +23,7 @@ on property:fku.perf.profile=1
     write /sys/devices/system/cpu/cpu1/cpufreq/scaling_max_freq 2649600
     write /sys/devices/system/cpu/cpu2/cpufreq/scaling_max_freq 2649600
     write /sys/devices/system/cpu/cpu3/cpufreq/scaling_max_freq 2649600
-    write /sys/class/misc/mako_hotplug_control/load_threshold 80
+    #write /sys/class/misc/mako_hotplug_control/load_threshold 80
     write /sys/class/devfreq/fdb00000.qcom,kgsl-3d0/max_freq 600000000
 
 # Performance
@@ -35,5 +35,5 @@ on property:fku.perf.profile=2
     write /sys/devices/system/cpu/cpu1/cpufreq/scaling_max_freq 2649600
     write /sys/devices/system/cpu/cpu2/cpufreq/scaling_max_freq 2649600
     write /sys/devices/system/cpu/cpu3/cpufreq/scaling_max_freq 2649600
-    write /sys/class/misc/mako_hotplug_control/load_threshold 0
+    #write /sys/class/misc/mako_hotplug_control/load_threshold 0
     write /sys/class/devfreq/fdb00000.qcom,kgsl-3d0/max_freq 600000000
