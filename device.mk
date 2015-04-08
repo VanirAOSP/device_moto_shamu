@@ -113,7 +113,8 @@ PRODUCT_AAPT_PREBUILT_DPI := xxxhdpi xxhdpi xhdpi hdpi
 PRODUCT_CHARACTERISTICS := nosdcard
 
 DEVICE_PACKAGE_OVERLAYS := \
-    device/moto/shamu/overlay
+    device/moto/shamu/overlay \
+    device/moto/shamu/overlay-cm
 
 PRODUCT_PACKAGES := \
     libwpa_client \
