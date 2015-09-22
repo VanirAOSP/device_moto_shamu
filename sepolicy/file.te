@@ -44,9 +44,6 @@ type tap2wake_dev, fs_type, sysfs_type;
 type sysfs_vibrator, fs_type, sysfs_type;
 type sysfs_display, fs_type, sysfs_type;
 
-#LEDs NUTS
-type sysfs_leds, fs_type, sysfs_type;
-
 # Define cnd socket and data file type
 type cnd_socket, file_type;
 type cnd_data_file, file_type;
