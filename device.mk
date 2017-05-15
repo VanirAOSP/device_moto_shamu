@@ -433,11 +433,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
 ADDITIONAL_DEFAULT_PROPERTIES += \
     ro.oem_unlock_supported=1
 
-# Browser
-PRODUCT_PACKAGES += \
-    Gello
 
 # ro.product.first_api_level indicates the first api level the device has commercially launched on.
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.product.first_api_level=21
-
